@@ -15,7 +15,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.e.tubesmobile.ui.theme.Purple700
+import com.e.tubesmobile.screens.smarthphone.FormPencatatanSmarthphone
 import kotlinx.coroutines.launch
 
 @Composable
