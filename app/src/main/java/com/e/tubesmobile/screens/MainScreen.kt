@@ -15,6 +15,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.e.tubesmobile.screens.komputer.FormPencatatanKomputer
 import com.e.tubesmobile.screens.smarthphone.FormPencatatanSmarthphone
 import kotlinx.coroutines.launch
 
