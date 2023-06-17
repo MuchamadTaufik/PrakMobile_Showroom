@@ -28,7 +28,7 @@ fun DrawerContent(onClick: (String) -> Unit)
         Menu.PENGELOLAAN_KOMPUTER,
         Menu.PENGELOLAAN_PERIFERAL,
         Menu.PENGELOLAAN_SMARTHPHONE,
-        Menu.SETTING)
+        Menu.TEAM)
     val listState = rememberLazyListState()
     Column(
         modifier = Modifier
@@ -36,15 +36,15 @@ fun DrawerContent(onClick: (String) -> Unit)
     ) {
         Row (modifier = Modifier
             .fillMaxWidth()
-            .padding(5.dp),
+            .padding(20.dp),
             horizontalArrangement = Arrangement.Center) {
-            Text("Selamat Datang", modifier = Modifier
-                .height(32.dp)
+            Text("WELCOME BACK", modifier = Modifier
+                .height(35.dp)
                 .padding(2.dp),
-                fontSize = 18.sp,
-                fontWeight = FontWeight.SemiBold)
+                fontSize = 25.sp,
+                fontWeight = FontWeight.Bold)
         }
-        Divider(startIndent = 8.dp, thickness = 1.dp, color = Color.Black)
+        Divider(startIndent = 8.dp, thickness = 1.dp, color = Color.DarkGray)
         LazyColumn(
             state = listState,
             contentPadding = PaddingValues(0.dp)
@@ -55,7 +55,7 @@ fun DrawerContent(onClick: (String) -> Unit)
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(5.dp),
-                    contentColor = Color.Black
+                    contentColor = Color.White
                 ) {
                     Row (modifier = Modifier
                         .padding(5.dp)

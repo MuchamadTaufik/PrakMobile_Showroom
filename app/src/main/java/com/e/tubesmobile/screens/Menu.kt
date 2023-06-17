@@ -8,11 +8,11 @@ enum class Menu(
     val icon: Int,
     val route: String
 ) {
-    HOME(R.string.home, R.drawable.baseline_home_24, "home"),
-    PENGELOLAAN_KOMPUTER(R.string.pengelolaan_komputer, R.drawable.baseline_computer_24, "pengelolaan-komputer"),
-    PENGELOLAAN_PERIFERAL(R.string.pengelolaan_periferal, R.drawable.baseline_mouse_24, "pengelolaan-periferal"),
-    PENGELOLAAN_SMARTHPHONE(R.string.pengelolaan_smarthphone, R.drawable.baseline_phone_android_24, "pengelolaan-smarthphone"),
-    SETTING(R.string.setting, R.drawable.baseline_settings_24, "setting");
+    HOME(R.string.home, R.drawable.home, "home"),
+    PENGELOLAAN_KOMPUTER(R.string.pengelolaan_komputer, R.drawable.komputer_home, "pengelolaan-komputer"),
+    PENGELOLAAN_PERIFERAL(R.string.pengelolaan_periferal, R.drawable.periferal_home, "pengelolaan-periferal"),
+    PENGELOLAAN_SMARTHPHONE(R.string.pengelolaan_smarthphone, R.drawable.smartphone_home, "pengelolaan-smarthphone"),
+    TEAM(R.string.team, R.drawable.team_home, "team");
     companion object {
         fun getTabFromResource(@StringRes resource: Int) : Menu
         {
@@ -21,7 +21,8 @@ enum class Menu(
                 R.string.pengelolaan_komputer -> PENGELOLAAN_KOMPUTER
                 R.string.pengelolaan_periferal -> PENGELOLAAN_PERIFERAL
                 R.string.pengelolaan_smarthphone -> PENGELOLAAN_SMARTHPHONE
-                else -> SETTING
+                R.string.team -> TEAM
+                else -> TEAM
             }
         }
     }

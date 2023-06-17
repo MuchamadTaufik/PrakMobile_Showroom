@@ -28,106 +28,37 @@ fun HomeScreen(navController: NavHostController, snackbarHostState: SnackbarHost
         Menu.PENGELOLAAN_KOMPUTER,
         Menu.PENGELOLAAN_PERIFERAL,
         Menu.PENGELOLAAN_SMARTHPHONE,
-        Menu.SETTING)
+        Menu.TEAM)
     val listState = rememberLazyListState()
 
     Column(
-        modifier = Modifier.run {
-            fillMaxSize()
-                .background(Color.Black)
-        },
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.Black),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Top
     ) {
         Image(modifier = Modifier
-            .size(200.dp),
+            .size(300.dp),
             painter = painterResource(
                 id = R.drawable.logo),
             contentDescription = "Halaman Home"
         )
         Spacer(modifier = Modifier.height(20.dp))
         Text(
-            text = "Welcome",
-            fontSize = 20.sp,
+            text = "WELCOME ",
+            fontSize = 50.sp,
             fontWeight = FontWeight.Medium,
             color = Color.White
         )
         Spacer(modifier = Modifier.height(10.dp))
         Text(
-            modifier = Modifier.padding(end = 78.dp, start = 78.dp),
-            text = "Lagi butuh Komputer, Periferal, dan Smarthphone, Disini adalah tempat yang tepat",
-            fontSize = 14.sp,
+            modifier = Modifier.padding(end = 80.dp, start = 80.dp),
+            text = "Store Elektronik terlengkap",
+            fontSize = 20.sp,
             fontWeight = FontWeight.Light,
             color = Color.White,
             textAlign = TextAlign.Center
         )
-        Spacer(modifier = Modifier.height(30.dp))
-        Button(
-            onClick = {
-                navController.navigate("pengelolaan-komputer")
-            },
-            modifier = Modifier
-                .height(45.dp)
-                .width(200.dp),
-            colors = ButtonDefaults.buttonColors(Color.Red),
-            shape = RoundedCornerShape(8.dp)
-        ) {
-            Text(
-                text = "Komputer",
-                fontSize = 14.sp,
-                fontWeight = FontWeight.Medium,
-                color = Color.White
-            )
-        }
-        Spacer(modifier = Modifier.height(10.dp))
-        Button(
-            onClick = { navController.navigate("pengelolaan-periferal") },
-            modifier = Modifier
-                .height(45.dp)
-                .width(200.dp),
-            colors = ButtonDefaults.buttonColors(Color.Red),
-            shape = RoundedCornerShape(8.dp)
-        ) {
-            Text(
-                text = "Periferal",
-                fontSize = 14.sp,
-                fontWeight = FontWeight.Medium,
-                color = Color.White
-            )
-        }
-        Spacer(modifier = Modifier.height(10.dp))
-        Button(
-            onClick = { navController.navigate("pengelolaan-smarthphone") },
-            modifier = Modifier
-                .height(45.dp)
-                .width(200.dp),
-            colors = ButtonDefaults.buttonColors(Color.Red),
-            shape = RoundedCornerShape(8.dp)
-        ) {
-            Text(
-                text = "Smarthphone",
-                fontSize = 14.sp,
-                fontWeight = FontWeight.Medium,
-                color = Color.White
-            )
-        }
-        Spacer(modifier = Modifier.height(10.dp))
-        Button(
-            onClick = {
-                navController.navigate("setting")
-            },
-            modifier = Modifier
-                .height(45.dp)
-                .width(200.dp),
-            colors = ButtonDefaults.buttonColors(Color.Red),
-            shape = RoundedCornerShape(8.dp)
-        ) {
-            Text(
-                text = "Pengaturan",
-                fontSize = 14.sp,
-                fontWeight = FontWeight.Medium,
-                color = Color.White
-            )
-        }
     }
 }

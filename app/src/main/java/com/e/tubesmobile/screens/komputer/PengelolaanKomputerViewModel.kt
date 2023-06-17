@@ -1,6 +1,5 @@
 package com.e.tubesmobile.screens.komputer
 
-
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -45,11 +44,11 @@ class PengelolaanKomputerViewModel @Inject constructor(private val komputerRepos
         merk: String,
         jenis: JenisKomputer,
         harga: Int,
-        dapatDiUpgrade: Boolean,
+        dapat_diupgrade: Int,
         spesifikasi: String
     ){
         _isLoading.postValue(true)
-        komputerRepository.insert(merk, jenis, harga, dapatDiUpgrade, spesifikasi,
+        komputerRepository.insert(merk, jenis, harga, dapat_diupgrade, spesifikasi,
             onError = { item, message ->
                 _toast.postValue(message)
                 _isLoading.postValue(false)
@@ -67,10 +66,10 @@ class PengelolaanKomputerViewModel @Inject constructor(private val komputerRepos
                        merk: String,
                        jenis: JenisKomputer,
                        harga: Int,
-                       dapatDiUpgrade: Boolean,
+                       dapat_diupgrade: Int,
                        spesifikasi: String){
         _isLoading.postValue(true)
-        komputerRepository.update(id, merk, jenis, harga, dapatDiUpgrade, spesifikasi,
+        komputerRepository.update(id, merk, jenis, harga, dapat_diupgrade, spesifikasi,
             onError = { item, message ->
                 _toast.postValue(message)
                 _isLoading.postValue(false)

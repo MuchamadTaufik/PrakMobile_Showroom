@@ -15,8 +15,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.e.tubesmobile.screens.komputer.FormPencatatanKomputer
-import com.e.tubesmobile.screens.smarthphone.FormPencatatanSmarthphone
+import com.e.tubesmobile.ui.theme.Purple700
 import kotlinx.coroutines.launch
 
 @Composable
@@ -30,22 +29,27 @@ fun MainScreen() {
     Scaffold(
         topBar = {
             TopAppBar(
-                backgroundColor = Color.Black,
+                backgroundColor = Purple700,
                 elevation = 0.dp,
                 modifier= Modifier
                     .fillMaxWidth()) {
                 Box(Modifier
                     .height(32.dp)) {
-                    Row(Modifier
-                        .fillMaxHeight()
-                        .width(72.dp - appBarHorizontalPadding),
+                    Row(
+                        Modifier
+                            .fillMaxHeight()
+                            .width(72.dp - appBarHorizontalPadding),
                         verticalAlignment = Alignment.CenterVertically) {
                         CompositionLocalProvider(
                             LocalContentAlpha provides
                                     ContentAlpha.high,
                         ) {
                             IconButton(
-                                onClick = { },
+                                onClick = {
+                                    scope.launch {
+                                        scaffoldState.drawerState.open()
+                                    }
+                                },
                                 enabled = true,
                             ) {
                                 Icon(
@@ -54,7 +58,7 @@ fun MainScreen() {
                             }
                         }
                     }
-
+// Title
                     Row(Modifier
                         .fillMaxSize(),
                         verticalAlignment = Alignment.CenterVertically) {
@@ -65,7 +69,7 @@ fun MainScreen() {
                                 Text(
                                     modifier = Modifier.fillMaxWidth(),
                                     textAlign = TextAlign.Center,
-                                    color = Color.Black,
+                                    color = Color.White,
                                     maxLines = 1,
                                     text = title.value
                                 )
@@ -79,7 +83,7 @@ fun MainScreen() {
         snackbarHost = {
             SnackbarHost(it) { data ->
                 Snackbar(
-                    actionColor = Color.Yellow,
+                    actionColor = Color.Black,
                     contentColor = Color.White,
                     snackbarData = data
                 )
@@ -110,8 +114,8 @@ fun MainScreen() {
                 composable("home") {
                     HomeScreen(navController = navController, snackbarHostState = scaffoldState.snackbarHostState , modifier = Modifier.padding(innerPadding))
                 }
-                composable("setting") {
-                    SettingScreen()
+                composable("team") {
+                    TeamScreen()
                 }
                 composable("pengelolaan-komputer") {
                     title.value = "Pengelolaan Komputer"

@@ -1,5 +1,4 @@
-package com.e.tubesmobile.screens.komputer
-
+package com.e.tubesmobile.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -17,6 +16,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.e.tubesmobile.R
 import com.e.tubesmobile.model.Komputer
+import com.e.tubesmobile.model.Periferal
 import com.vanpra.composematerialdialogs.MaterialDialog
 import com.vanpra.composematerialdialogs.message
 import com.vanpra.composematerialdialogs.rememberMaterialDialogState
@@ -33,8 +33,8 @@ fun KompterItem(item: Komputer, navController: NavHostController, onDelete: (Str
             .padding(horizontal = 8.dp, vertical = 8.dp)
             .fillMaxWidth(),
         elevation = 2.dp,
-        backgroundColor = Color.White,
-        shape = RoundedCornerShape(corner = CornerSize(16.dp))
+        backgroundColor = Color.Transparent,
+        shape = RoundedCornerShape(corner = CornerSize(0.dp))
     ) {
         Row {
             Image(
@@ -61,7 +61,7 @@ fun KompterItem(item: Komputer, navController: NavHostController, onDelete: (Str
                 Text(text = "Rp. ${item.harga}", fontSize = 14.sp, fontWeight = FontWeight.Light)
 
                 Text(text = "Dapat DiUpgrade", fontSize = 16.sp, fontWeight = FontWeight.Bold)
-                Text(text = item.dapatDiupgarade.toString(), fontSize = 14.sp, fontWeight = FontWeight.Light)
+                Text(text = if (item.dapat_diupgrade == 1) "Ya" else "Tidak", fontSize = 14.sp, fontWeight = FontWeight.Light)
 
                 Text(text = "Spesifikasi", fontSize = 16.sp, fontWeight = FontWeight.Bold)
                 Text(text = item.spesifikasi, fontSize = 14.sp, fontWeight = FontWeight.Light)
@@ -71,13 +71,13 @@ fun KompterItem(item: Komputer, navController: NavHostController, onDelete: (Str
                         onClick = {
                             navController.navigate("edit-pengelolaan-komputer/${item.id}")
                         },
-                        colors = ButtonDefaults.buttonColors(Color.Yellow),
+                        colors = ButtonDefaults.buttonColors(Color.Blue),
                         shape = RoundedCornerShape(8.dp),
                         modifier = Modifier.padding(2.dp)
                     ) {
                         Text(
                             text = "Edit",
-                            color = Color.Black,
+                            color = Color.White,
                         )
                     }
                     Button(
