@@ -1,4 +1,4 @@
-package com.e.tubesmobile.screens.smarthphone
+package com.e.tubesmobile.screens
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -19,6 +19,7 @@ import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.e.tubesmobile.model.Smarthphone
+import com.e.tubesmobile.screens.smarthphone.PengelolaanSmarthphoneViewModel
 import kotlinx.coroutines.launch
 
 @Composable

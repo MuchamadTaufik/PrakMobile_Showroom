@@ -32,8 +32,8 @@ fun PeriferalItem(item: Periferal,  navController: NavHostController, onDelete: 
             .padding(horizontal = 8.dp, vertical = 8.dp)
             .fillMaxWidth(),
         elevation = 2.dp,
-        backgroundColor = Color.White,
-        shape = RoundedCornerShape(corner = CornerSize(16.dp))
+        backgroundColor = Color.Transparent,
+        shape = RoundedCornerShape(corner = CornerSize(0.dp))
     ) {
         Row {
             Image(
@@ -43,7 +43,7 @@ fun PeriferalItem(item: Periferal,  navController: NavHostController, onDelete: 
                 painter = painterResource(
                     id = R.drawable.periferal
                 ),
-                contentDescription = "ilustrasi periferal"
+                contentDescription = "periferal"
             )
             Column(modifier = Modifier
                 .padding(10.dp)
@@ -59,20 +59,20 @@ fun PeriferalItem(item: Periferal,  navController: NavHostController, onDelete: 
                 Text(text = item.deskripsi, fontSize = 14.sp, fontWeight = FontWeight.Light)
 
                 Text(text = "Jenis Periferal", fontSize = 16.sp, fontWeight = FontWeight.Bold)
-                Text(text = item.jenisPeriferal, fontSize = 14.sp, fontWeight = FontWeight.Light)
+                Text(text = item.jenis, fontSize = 14.sp, fontWeight = FontWeight.Light)
 
                 Row(modifier = Modifier.fillMaxWidth()) {
                     Button(
                         onClick = {
-                        navController.navigate("edit-pengelolaan-periferal/${item.id}")
-                    },
-                        colors = ButtonDefaults.buttonColors(Color.Yellow),
+                            navController.navigate("edit-pengelolaan-periferal/${item.id}")
+                        },
+                        colors = ButtonDefaults.buttonColors(Color.Blue),
                         shape = RoundedCornerShape(8.dp),
                         modifier = Modifier.padding(2.dp)
                     ) {
                         Text(
                             text = "Edit",
-                            color = Color.Black
+                            color = Color.White
                         )
                     }
                     Button(

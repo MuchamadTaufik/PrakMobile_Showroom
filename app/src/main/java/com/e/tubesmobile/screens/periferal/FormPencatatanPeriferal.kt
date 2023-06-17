@@ -35,7 +35,7 @@ fun FormPencatatanPeriferal (navController: NavHostController, id: String? = nul
     val deskripsi = remember {
         mutableStateOf(TextFieldValue(""))
     }
-    val jenisPeriferal = remember {
+    val jenis = remember {
         mutableStateOf(JenisPeriferal.Keyboard)
     }
     val isLoading = remember {
@@ -87,7 +87,7 @@ fun FormPencatatanPeriferal (navController: NavHostController, id: String? = nul
 
         OutlinedTextField(
             label = { Text(text = "Jenis Periferal") },
-            value = jenisPeriferal.value.toString(),
+            value = jenis.value.toString(),
             onValueChange = {},
             modifier = Modifier
                 .padding(4.dp)
@@ -105,7 +105,7 @@ fun FormPencatatanPeriferal (navController: NavHostController, id: String? = nul
             items.forEach { item ->
                 DropdownMenuItem(
                     onClick = {
-                        jenisPeriferal.value = item
+                        jenis.value = item
                         expanded = false
                     }
                 ) {
@@ -122,12 +122,12 @@ fun FormPencatatanPeriferal (navController: NavHostController, id: String? = nul
         }
 
         val loginButtonColors = ButtonDefaults.buttonColors(
-            backgroundColor = Purple700,
-            contentColor = Teal200
+            backgroundColor = Teal200,
+            contentColor = Color.Yellow
         )
         val resetButtonColors = ButtonDefaults.buttonColors(
-            backgroundColor = Teal200,
-            contentColor = Purple700
+            backgroundColor = Color.Red,
+            contentColor = Color.Black
         )
 
         Row(modifier = Modifier
@@ -143,7 +143,7 @@ fun FormPencatatanPeriferal (navController: NavHostController, id: String? = nul
                                 nama.value.text,
                                 harga.value.text.toIntOrNull() ?: 0,
                                 deskripsi.value.text,
-                                jenisPeriferal = jenisPeriferal.value
+                                jenis = jenis.value
                             )
                         }
                     }else{
@@ -153,7 +153,7 @@ fun FormPencatatanPeriferal (navController: NavHostController, id: String? = nul
                                 nama.value.text,
                                 harga.value.text.toIntOrNull() ?: 0,
                                 deskripsi.value.text,
-                                jenisPeriferal.value
+                                jenis.value
                             )
                         }
                     }
@@ -165,7 +165,7 @@ fun FormPencatatanPeriferal (navController: NavHostController, id: String? = nul
                     text = buttonLabel,
                     style = TextStyle(
                         color = Color.White,
-                        fontSize = 18.sp
+                        fontSize = 20.sp
                     ),
                     modifier = Modifier.padding(8.dp)
                 )
@@ -177,7 +177,7 @@ fun FormPencatatanPeriferal (navController: NavHostController, id: String? = nul
                     nama.value = TextFieldValue("")
                     harga.value = TextFieldValue("")
                     deskripsi.value = TextFieldValue("")
-                    jenisPeriferal.value = JenisPeriferal.Keyboard
+                    jenis.value = JenisPeriferal.Keyboard
                 },
                 colors = resetButtonColors
             ) {
@@ -185,7 +185,7 @@ fun FormPencatatanPeriferal (navController: NavHostController, id: String? = nul
                     text = "Reset",
                     style = TextStyle(
                         color = Color.White,
-                        fontSize = 18.sp
+                        fontSize = 20.sp
                     ),
                     modifier = Modifier.padding(8.dp)
                 )
@@ -204,7 +204,7 @@ fun FormPencatatanPeriferal (navController: NavHostController, id: String? = nul
                     nama.value = TextFieldValue("")
                     harga.value = TextFieldValue("")
                     deskripsi.value = TextFieldValue("")
-                    jenisPeriferal.value = JenisPeriferal.valueOf(periferal.jenisPeriferal)
+                    jenis.value = JenisPeriferal.valueOf(periferal.jenis)
                 }
             }
         }

@@ -1,9 +1,10 @@
 package com.e.tubesmobile.di
 
 import android.content.Context
-import com.e.tubesmobile.networks.KomputerApi
-import com.e.tubesmobile.networks.PeriferalApi
-import com.e.tubesmobile.networks.SmarthphoneApi
+import com.e.tubesmobile.network.KomputerApi
+import com.e.tubesmobile.network.PeriferalApi
+import com.e.tubesmobile.network.SmarthphoneApi
+import com.e.tubesmobile.model.Smarthphone
 import com.skydoves.sandwich.coroutines.CoroutinesResponseCallAdapterFactory
 import dagger.Module
 import dagger.Provides
@@ -21,13 +22,10 @@ import javax.inject.Singleton
 object NetworkModule {
     @Provides
     @Singleton
-    fun provideOkHttpClient(@ApplicationContext context:
-                            Context
+    fun provideOkHttpClient(@ApplicationContext context: Context
     ): OkHttpClient {
         return OkHttpClient.Builder()
-            .addInterceptor(HttpLoggingInterceptor().apply {
-                level = HttpLoggingInterceptor.Level.BODY
-            })
+
             .build()
     }
 
@@ -38,7 +36,7 @@ object NetworkModule {
         return Retrofit.Builder()
             .client(okHttpClient)
             .baseUrl(
-                "https://ppm-api.gusdya.net/api/"
+                "https://ppm-api.gusdya.net/"
             )
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(CoroutinesResponseCallAdapterFactory())
@@ -60,7 +58,7 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideSmartphoneApi(retrofit: Retrofit):
+    fun provideSmarthphoneApi(retrofit: Retrofit):
             SmarthphoneApi {
         return retrofit.create(SmarthphoneApi::class.java)
     }

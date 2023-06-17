@@ -1,6 +1,5 @@
 package com.e.tubesmobile.persistance
 
-
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.e.tubesmobile.model.Komputer
